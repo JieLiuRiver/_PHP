@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    if (window.top != window)
+    {
+        window.top.location.href = document.location.href;
+    }
+</script>
+<style>
+    body{
+        margin:0;padding:0;
+        font-family: "Comic Sans MS";
+        background:#e5e5e5;
+    }
+
+</style>
+<body>
+
+    <h4 style="font-size:25px;background:#fff; text-align:center; color:#333; width:400px;padding:50px 0;position:absolute;left:calc( 50% - 200px );box-shadow:4px 4px 4px #555;">
+        <span style="color:green;">
+        <?php
+           echo $_SESSION['admin_info']['userName'];
+        ?>
+        </span>
+        管理员,<br/>
+        欢迎来到后台管理首页
+        <p style="font-size:16px;">页面正在研发，前方高能！</p>
+    </h4>
+    <a style="text-decoration: none;color:#fff;font-size:12px;margin:100px auto;background:#333;border-radius:2px;padding:8px 10px;display:inline-block;" href="index.php?p=back&c=Goods&a=add">添加商品</a>
+</body>
+</html>

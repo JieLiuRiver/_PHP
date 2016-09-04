@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href='?c=Product&a=ShowAllProduct'>产品列表</a>
+<a href='?c=User'>用户列表</a>
+<hr />
+<a href='?a=ShowForm' >添加新用户</a>
+用户列表：
+<table border='1'>
+    <?php
+	foreach( $data1 as  $key => $rec )
+    {
+    ?>
+    <tr>
+        <td><?php echo $rec['userName']; ?></td>
+        <td class='t1'><?php echo $rec['age']; ?></td>
+        <td><?php echo $rec['education']; ?></td>
+        <td class='t2'><?php echo $rec['xingqu']; ?></td>
+        <td><?php echo $rec['fromWhere']; ?></td>
+        <td><?php echo $rec['regTime']; ?></td>
+        <td>
+            <a href='?a=del&id=<?php echo $rec['userid']; ?>' onclick='return queren()'>删除</a>
+            <a href='?a=detail&id=<?php echo $rec['userid']; ?>' >详细</a>
+            <a href='?a=Edit&id=<?php echo $rec['userid']; ?>' >修改</a>
+        </td>
+    </tr>
+    <?php
+	}
+	?>
+</table>
+<br />
+当前用户总数：<?php echo $data2;?><br/>
+<hr/>
+<a href="?p=back&c=Admin&a=Login">进入后台</a>
+</body>
+</html>
+<script>
+    function queren(){
+        return window.confirm("你真的要删除吗？");
+    }
+</script>
+
+</body>
+</html>

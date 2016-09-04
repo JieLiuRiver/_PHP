@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="./Application/other/styles/general.css">
+    <link type="text/css" rel="stylesheet" href="./Application/other/styles/main.css">
+</head>
+<body>
+<style>
+    #tabbody-div{
+        width: 600px;
+        height: 600px;
+        background: #ccc;
+        margin: 50px auto;
+        padding: 20px;
+    }
+</style>
+<div class="tab-div">
+    <!-- tab bar -->
+    <div id="tabbar-div">
+        <p>
+            <span id="general-tab" class="tab-front">通用信息</span>
+            <span id="detail-tab" class="tab-back">详细描述</span>
+            <span id="mix-tab" class="tab-back">其他信息</span>
+            <span id="gallery-tab" class="tab-back">商品相册</span>
+        </p>
+    </div>
+
+    <!-- tab body -->
+    <div id="tabbody-div">
+        <form name="theForm" method="post" action="index.php?p=back&c=Goods&a=Insert" enctype="multipart/form-data">
+            <!-- 基本信息 -->
+            <table width="90%" align="center" id="general-table" style="display: table;">
+                <tbody><tr>
+                    <td class="label">商品名称：</td>
+                    <td><input type="text" size="30" style="float:left;color:;" value="" name="goods_name">
+                        <span class="require-field">*</span></td>
+                </tr>
+                <tr>
+                    <td class="label">本店售价：</td>
+                    <td>
+                        <input type="text" onblur="" size="20" value="0" name="shop_price">
+                        <span class="require-field">*</span></td>
+                </tr>
+
+                <tr>
+                    <td class="label">上传商品图片：</td>
+                    <td>
+                        <input type="file" size="35" name="goods_image_ori">
+                    </td>
+                </tr>
+                </tbody></table>
+
+            <!-- 商品详细描述 -->
+            <table width="90%" style="display: none;" id="detail-table">
+                <tbody><tr>
+                    <td>
+                        <textarea name="goods_desc"></textarea>
+                    </td>
+                </tr>
+                </tbody></table>
+
+            <!-- 商品其他信息 -->
+            <table width="90%" align="center" style="display: none;" id="mix-table">
+
+                <tr>
+                    <td class="label">商品库存数量：</td>
+                    <td><input type="text" size="20" value="1" name="goods_number"><br>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="label">加入推荐：</td>
+                    <td>
+                        <input type="checkbox" name="is_best" value="1" >精品
+                        <input type="checkbox" name="is_new" value="1" checked="checked">新品
+                        <input type="checkbox" name="is_hot" value="1">热销
+                    </td>
+                </tr>
+                <tr id="alone_sale_1">
+                    <td id="alone_sale_2" class="label">上架：</td>
+                    <td id="alone_sale_3">
+                        <input type="checkbox" checked="checked" value="1" name="is_on_sale"> 打勾表示允许销售，否则不允许销售。</td>
+                </tr>
+            </table>
+
+            <!-- 商品相册table -->
+            <table width="90%" align="center" style="display: none;" id="gallery-table">
+                <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr>
+                    <td>
+                        <a onclick="addImg(this)" href="javascript:;">[+]</a>
+                        上传文件 <input type="file" name="img_url[]">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="button-div">
+                <input type="submit" onclick="" class="button" value=" 确定 ">
+                <input type="reset" class="button" value=" 重置 ">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/tab.js"></script>
+
+</body>
+</html>
